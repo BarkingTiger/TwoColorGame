@@ -40,6 +40,7 @@ options = {
   let player;
   let c;
   let state;
+  let state2;
 
   let flag = false;
   let x = 60;
@@ -49,6 +50,7 @@ function update() {
   if (!ticks) {
 
     state = 1;
+    state2 = false;
     c = "blue";
     player = {
         pos: vec(G.WIDTH / 2, 3 * G.HEIGHT / 4)
@@ -157,18 +159,48 @@ function update() {
     
   //color change
   if (input.isJustPressed) {
-      if (state == 0) {
-          c = "red";
-          state = 1;
-      }
-      else {
-          c = "blue";
-          state = 0;
-      }
+    addScore(100);  
+    if (state == 0) {
+      c = "blue";
+      state = 1;
+    }
+    else {
+      c = "red";
+      state = 0;
+    }
   }
-
   //player
   color(c);
   box(player.pos, 4);
 
+  if (player.pos.x > G.WIDTH - 20) {
+    state2 = true;
+  }
+  else if (player.pos.x < 20) {
+    state2 = false;
+  }
+
+  if (state2) {
+    player.pos.x--
+  }
+  else {
+    player.pos.x++
+  }
+
+  if (box(player.pos, 4).isColliding.char.a && flag) {
+    if (state && player.pos.x < G.WIDTH / 2) {
+        end();
+    }
+    else if (!state && player.pos.x > G.WIDTH / 2) {
+      end();
+    }
+  }
+  else if (box(player.pos, 4).isColliding.char.a && !flag) {
+    if (state && player.pos.x > G.WIDTH / 2) {
+      end();
+  }
+  else if (!state && player.pos.x < G.WIDTH / 2) {
+    end();
+  }
+  }
 }
