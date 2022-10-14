@@ -32,6 +32,10 @@ const G = {
     
 options = {
     viewSize: {x: G.WIDTH, y: G.HEIGHT},
+    
+  isCapturing: true,
+  isCapturingGameCanvasOnly : true,
+  captureCanvasScale : 2,
 };
     
 /**
