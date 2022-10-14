@@ -1,6 +1,8 @@
 title = "TWO COLOR";
 
 description = ` 
+Press any button 
+to change colors
 `;
 
 characters = [
@@ -87,22 +89,6 @@ function update() {
       });
     }
   }
-    
-//      enemy.forEach((e) => {
-//    e.pos.y += e.speed;
-////    e.pos.x += 1;
-//    e.pos.wrap(0, G.WIDTH, 0, G.HEIGHT);
-//    color("red");
-//    char("a", e.pos);
-//  });
-//    
-//  enemy2.forEach((e) => {
-//    e.pos.y += e.speed;
-//    e.pos.wrap(0, G.WIDTH, 0, G.HEIGHT);
-//    color("blue");
-//    char("a", e.pos);
-//  });
-    
   
   if (ticks % 120 == 0) {
       if (flag == true) {
