@@ -1,6 +1,6 @@
 title = "TWO COLOR";
 
-description = ` 
+description = `PRESS TO CHANGE COLOR
 `;
 
 characters = [
@@ -11,6 +11,14 @@ characters = [
 rrrrrr
  rrrr
   rr
+`,
+`   
+  rr
+ rrrr
+rrrrrr
+rrrrrr
+ rrrr
+r    r
 `
 ];
 
@@ -171,7 +179,8 @@ function update() {
   }
   //player
   color(c);
-  box(player.pos, 4);
+  char("b", player.pos)
+//  box(player.pos, 4);
 
   if (player.pos.x > G.WIDTH - 20) {
     state2 = true;
@@ -187,7 +196,7 @@ function update() {
     player.pos.x++
   }
 
-  if (box(player.pos, 4).isColliding.char.a && flag) {
+  if (char("b", player.pos).isColliding.char.a && flag) {
     if (state && player.pos.x < G.WIDTH / 2) {
         end();
     }
@@ -195,7 +204,7 @@ function update() {
       end();
     }
   }
-  else if (box(player.pos, 4).isColliding.char.a && !flag) {
+  else if (char("b", player.pos).isColliding.char.a && !flag) {
     if (state && player.pos.x > G.WIDTH / 2) {
       end();
   }
